@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 
 import Login from './Components/Login';
+import HomePage from './Components/HomePage';
 
 const initialState = {
   loggedIn: false,
-
+  baseCurrency: "",
 }
 class App extends React.Component {
 
@@ -20,10 +21,16 @@ class App extends React.Component {
     })
   }
 
+  setBaseCurrency(value) {
+    this.setState({
+      baseCurrency: value
+    })
+  }
+
   getHomeScreen() {
     return (
       <header className="App-header">
-        Loign Success
+        <HomePage setBaseCurrency={this.setBaseCurrency.bind(this)} />
       </header>
     )
   }

@@ -18,7 +18,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="Modal">
         <div className="LoginModal">
           <GoogleLogin
             clientId={clientId}

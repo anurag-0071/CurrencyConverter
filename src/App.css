@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.Home {
+.Modal {
   width: 50vw;
   height: 25vh;
   /* background-color: black; */
@@ -34,15 +34,27 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Home {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.HomeModalLabel {
+  flex: 1;
+  align-self: start;
+  color: black;
+}
+
+.HomeModalImput {
+  flex: 1;
+  width: 40vw;
+  font-size: 24px;
+}
+
+.HomeModalButton {
+  flex: 2;
+  margin-top: 12px;
+  height: fit-content;
+  
 }
