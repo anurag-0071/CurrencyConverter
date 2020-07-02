@@ -2,19 +2,29 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Home {
+  width: 50vw;
+  height: 25vh;
+  /* background-color: black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-width: thick;
+  border-style: double;
+  border-color: #4188ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.LoginButton {
+  width: 90%;
+}
+
+.LoginModal {
+  border: 2px;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #005fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
