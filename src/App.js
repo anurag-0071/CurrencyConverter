@@ -2,11 +2,15 @@ import React from 'react';
 import './App.css';
 
 import Login from './Components/Login';
-import HomePage from './Components/HomePage';
+import BaseCurrency from './Components/BaseCurrency';
+import AddCurrency from './Components/AddCurrency';
 
 const initialState = {
   loggedIn: false,
   baseCurrency: "",
+  comparisionCurrencies: [],
+  currencies: [],
+  currentPage: "", // BaseCurrency, AddCurrency, HomePage
 }
 class App extends React.Component {
 
@@ -17,38 +21,77 @@ class App extends React.Component {
 
   doLogin() {
     this.setState({
-      loggedIn: true
+      loggedIn: true,
+      currentPage: "BaseCurrency"
     })
   }
 
   setBaseCurrency(value) {
     this.setState({
-      baseCurrency: value
+      baseCurrency: value,
+      currentPage: "AddCurrency"
+    });
+  }
+
+  getBaseCurrencyPage() {
+    return (
+      <BaseCurrency baseCurrency={this.state.baseCurrency} setBaseCurrency={this.setBaseCurrency.bind(this)} />
+    )
+  }
+
+  addCurrency(value) {
+    const currencies = this.state.currencies;
+    currencies.push(value);
+    this.setState({
+      currencies
     })
   }
 
-  getHomeScreen() {
+  goHome() {
+    this.setState({
+      currentPage: "HomePage"
+    })
+  }
+
+  getAddCurrencyPage() {
     return (
-      <header className="App-header">
-        <HomePage setBaseCurrency={this.setBaseCurrency.bind(this)} />
-      </header>
+      <AddCurrency
+        baseCurrency={this.state.baseCurrency}
+        addCurrency={this.addCurrency.bind(this)}
+        goHome={this.goHome.bind(this)}
+      />
     )
+  }
+
+  getHomePage() {
+
+  }
+
+  getView() {
+    switch (this.state.currentPage) {
+      case "BaseCurrency":
+        return this.getBaseCurrencyPage();
+
+      case "AddCurrency":
+        return this.getAddCurrencyPage();
+
+      case "HomePage":
+        return this.getHomePage();
+    }
   }
 
   getLoginScreen() {
     return (
-      <header className="App-header">
-        <Login login={this.doLogin.bind(this)} />
-      </header>
+      <Login login={this.doLogin.bind(this)} />
     )
   }
 
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header"> */}
-        {this.state.loggedIn ? this.getHomeScreen() : this.getLoginScreen()}
-        {/* </header> */}
+        <header className="App-header">
+          {this.state.loggedIn ? this.getView() : this.getLoginScreen()}
+        </header>
       </div>
     );
   }

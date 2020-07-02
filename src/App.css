@@ -7,16 +7,19 @@
   height: 25vh;
   /* background-color: black; */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   border-width: thick;
   border-style: double;
   border-color: #4188ff;
+  padding: 10px;
 }
 
 .LoginButton {
   width: 90%;
+  cursor:pointer;
 }
 
 .LoginModal {
@@ -35,8 +38,8 @@
 }
 
 .Home {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   /* align-items: flex-start; */
 }
 
@@ -56,5 +59,51 @@
   flex: 2;
   margin-top: 12px;
   height: fit-content;
-  
+  cursor:pointer;
+}
+
+.AddCurrencyView {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AddCurrencyModal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  align-self: center;
+}
+
+.BaseCurrency {
+  flex: 1;
+  align-self: flex-start;
+}
+
+.AddCurrencyLabel{
+  align-self: flex-start;
+  text-align: left;
+}
+
+.AddCurrencyModalImput {
+  align-self: flex-start;
+  width: 40vw;
+  font-size: 24px;
+}
+
+.AddCurrencyButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  outline:none;
+}
+
+.HomeButton {
+  flex: 1;
+  margin-top: 12px;
+  cursor:pointer;
+  height: fit-content;
 }
